@@ -18,9 +18,6 @@ public class Hero {
         this.id = instances.size();
     }
 // getters
-    public static Hero findById(int id) {
-        return instances.get(id -1);
-    }
 
     public String getName() {
         return name;
@@ -45,15 +42,22 @@ public class Hero {
     public int getId() {
         return id;
     }
+    public static Hero findById(int id) {
+        return instances.get(id -1);
+    }
+
     // Generate My heroes
 
-    public static Hero setUpNewHero(){
+    public static Hero generateNewHero(){
         return new Hero("CR7",35,"Rocket Shots","Curling");
     }
-    public static Hero setUpNewHero1(){
-        return new Hero("LM10",33,"Dribbling","Long Shots");
+    public static Hero generateNewHero1(){
+        return new Hero("LM-10",33,"Dribbling","Long Shots");
     }
-    public static Hero setUpNewHero2(){
-        return new Hero("Kroos",30,"Accuracy","Pace");
+    public static Hero generateNewHero2(){
+        return new Hero("Kroos (German Sniper",30,"Accuracy","Pace");
+    }
+    public static Hero generateNewHero3(){
+        return new Hero ("Bale-11", 30, "Pace", "Injury-Prone");
     }
 }
