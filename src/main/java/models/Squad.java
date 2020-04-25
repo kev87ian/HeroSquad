@@ -1,3 +1,4 @@
+
 import java.util.List;
 import java.util.ArrayList;
 
@@ -6,7 +7,7 @@ public class Squad {
     private int squadID;
     private String cause;
     private int squadSize;
-    private ArrayList<Hero>  squadMembers = new ArrayList<>();
+    private ArrayList <Hero>  squadMembers = new ArrayList<>();
     private static ArrayList<Squad> instances = new ArrayList<>();
 
     public Squad(String name, int squadSize, String cause) {
