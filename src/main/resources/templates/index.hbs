@@ -1,12 +1,47 @@
 {{#partial "content"}}
-h1>Hero models.Squad!</h1>
-<p>Assemble your Team and Save The Planet</p>
+    <div class="jumbotron">
+        <div class="page-header">
+            <h1 class="text-center">WELCOME TO HERO SQUAD.</h1>
+            <p class="text-center">Create your own heroes and squads to stand for your cause</p>
+        </div>
+    </div>
 
-<p>Each team should have a maximum of 4 superheroes</p>
-<p> Remember, the fate of the planet is in your hands. <br>
-And finally, May the force be with you.</p>
-  <a href="/hero-form"><button class="hero-btn btns">Create Hero</button></a>
+        <div class="row">
+            <div class="col-md-6 pt-5">
+                <h2>Current Squads:</h2>
+                {{#if squads}}
+                    {{#each squads}}
 
-</div>
+
+                        <p><a href="/squads/{{id}}"> <button type="submit" class="btn btn-success"> Squad details...</button></a></p>
+
+                    {{/each}}
+                {{else}}
+                    <p>No Squads Available! </p>
+                {{/if}}
+                <p><a href="/squads/new"> <button type="submit" class="btn btn-success"> Add Squad...</button></a></p>
+
+            </div>
+
+            <div class="col-md-6 pt-5">
+                <h2>Current heroes:</h2>
+
+                {{#if heroes}}
+                    {{#each heroes}}
+                        <p>Hero:</p>
+                        <p><a href="/heroes/{{id}}"> <button type="submit" class="btn btn-success"> Hero details...</button></a></p>
+
+                    {{/each}}
+                {{else}}
+                    <p>No heroes added!</p>
+
+                {{/if}}
+                <p><a href="/heroes/new"> <button type="submit" class="btn btn-success"> Add Hero...</button></a></p>
+
+
+            </div>
+        </div>
+    </div>
 {{/partial}}
+
 {{> layout.hbs}}
