@@ -1,0 +1,47 @@
+{{#partial "content"}}
+    <div class="jumbotron">
+        <div class="page-header">
+            <h1 class="text-center">WELCOME TO HERO SQUAD.</h1>
+            <p class="text-center">Create your own heroes and squads to stand for your cause</p>
+        </div>
+    </div>
+
+        <div class="row">
+            <div class="col-md-6 pt-5">
+                <h2>Current Squads:</h2>
+                {{#if squads}}
+                    {{#each squads}}
+
+
+                        <p><a href="/squads/{{id}}"> <button type="submit" class="btn btn-success"> View This Squad Details...</button></a></p>
+
+                    {{/each}}
+                {{else}}
+                    <p>No Squads Available! </p>
+                {{/if}}
+                <p><a href="/squads/new"> <button type="submit" class="btn btn-success"> Add a Squad...</button></a></p>
+
+            </div>
+
+            <div class="col-md-6 pt-5">
+                <h2>Current heroes:</h2>
+
+                {{#if heroes}}
+                    {{#each heroes}}
+                        <p>Hero:</p>
+                        <p><a href="/heroes/{{id}}"> <button type="submit" class="btn btn-success"> Hero details...</button></a></p>
+
+                    {{/each}}
+                {{else}}
+                    <p>No heroes added!</p>
+
+                {{/if}}
+                <p><a href="/heroes/new"> <button type="submit" class="btn btn-success"> Add Hero...</button></a></p>
+
+
+            </div>
+        </div>
+    </div>
+{{/partial}}
+
+{{> layout.hbs}}

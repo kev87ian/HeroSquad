@@ -1,65 +1,53 @@
-package HeroesSquad;
+package models;
 
-import java.util.ArrayList;
 import java.util.List;
-
+import java.util.ArrayList;
 public class Hero {
-    private String name;
-    private int age;
-    private String power;
-    private String weakness;
-    private int id;
-    private static ArrayList<Hero> instances = new ArrayList<>();
 
-    public Hero(String name, Integer age, String power, String weakness) {
-        this.name = name;
-        this.age = age;
-        this.power = power;
-        this.weakness = weakness;
-        instances.add(this);
-        this.id = instances.size();
+    private String mName;
+    private int mAge;
+    private String mSpecialPower;
+    private String mWeakness;
+    private int mId;
+    private static List<Hero> heroes = new ArrayList<Hero>();
+
+
+
+    public Hero(String name, int Age,String specialPower, String weakness) {
+        mName = name;
+        mAge = Age;
+        mSpecialPower = specialPower;
+        mWeakness = weakness;
+        heroes.add(this);
+        mId = heroes.size();
     }
-// getters
+
+
 
     public String getName() {
-        return name;
+        return mName;
     }
 
     public int getAge() {
-        return age;
+        return mAge;
     }
-
-    public String power() {
-        return power;
+    public String getSpecialPower() {
+        return mSpecialPower;
     }
 
     public String getWeakness() {
-        return weakness;
+        return mWeakness;
     }
-
-    public String getPower() {
-        return power;
-    }
-
     public int getId() {
-        return id;
+        return mId;
+    }
+    public static List<Hero> all(){
+        return heroes;
+    }
+    public static void clear(){
+        heroes.clear();
     }
     public static Hero findById(int id) {
-        return instances.get(id -1);
-    }
-
-    // Generate My heroes
-
-    public static Hero generateNewHero(){
-        return new Hero("CR7",35,"Rocket Shots","Curling");
-    }
-    public static Hero generateNewHero1(){
-        return new Hero("LM-10",33,"Dribbling","Long Shots");
-    }
-    public static Hero generateNewHero2(){
-        return new Hero("Kroos (German Sniper",30,"Accuracy","Pace");
-    }
-    public static Hero generateNewHero3(){
-        return new Hero ("Bale-11", 30, "Pace", "Injury-Prone");
+        return heroes.get(id - 1);
     }
 }

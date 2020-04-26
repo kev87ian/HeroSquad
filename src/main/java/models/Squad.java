@@ -1,53 +1,69 @@
+package models;
 
-import java.util.List;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Squad {
-    private String Name;
-    private int squadID;
-    private String cause;
-    private int squadSize;
-    private ArrayList <Hero>  squadMembers = new ArrayList<>();
-    private static ArrayList<Squad> instances = new ArrayList<>();
+    private String mSquadName;
+    private int mMaxSize;
+    private String mSquadCause;
+    private static List<Squad> instances = new ArrayList<Squad>();
+    private int mId;
+    private List<Hero>mHeroes;
 
-    public Squad(String name, int squadSize, String cause) {
-        Name = name;
-        cause = this.cause;
-        squadSize = this.squadSize;
-        squadID = instances.size();
+
+    public Squad(String squadName, int maxSize, String squadCause) {
+        this.mSquadName = squadName;
+        this.mMaxSize = maxSize;
+        this.mSquadCause = squadCause;
         instances.add(this);
-        this.squadMembers = new ArrayList<>();
+        this.mId= instances.size();
+        mHeroes = new ArrayList<Hero>();
     }
 
-    public String getName() {
-        return Name;
+    public int getId() {
+        return mId;
     }
 
-    public int getSquadID() {
-        return squadID;
+    public String getSquadName() {
+        return mSquadName;
+
     }
 
-    public int getSize() {
-        return squadSize;
+    public int getMaxSize() {
+        return mMaxSize;
     }
 
-    public String getCause() {
-        return cause;
+    public String getSquadCause() {
+        return mSquadCause;
     }
 
-    public ArrayList<Hero> getSquadMembers() {
-        return squadMembers;
+    public static Squad findById(int id){
+        return instances.get(id-1);
     }
 
-    public static ArrayList<Squad> getInstances() {
+    public static List <Squad> all(){
         return instances;
     }
-    public void setSquadMembers(Hero newMember) {
-        squadMembers.add(newMember);
+    public static void clear(){
+        instances.clear();
     }
-    public static void clearAllSquads(){ instances.clear(); }
-    public void clearAllSquadMembers(){ getSquadMembers().clear(); }
 
-    public static Squad setUpNewSquad(){return new Squad("Galacticos",3,"UEFA");}
-    public static Squad setUpNewSquad1(){return new Squad("Blaugrana",3,"La Liga");}
+    public List<Hero> getHeroes(){
+        return mHeroes;
+    }
+    public void addHero(Hero hero){
+        mHeroes.add(hero);
+    }
+    public static boolean heroAlreadyExists(Hero newHero){
+        boolean exists = false;
+        for(Squad squad : instances){
+            for(Hero hero : squad.getHeroes()){
+                if(hero.getName().equals(newHero.getName())){
+                    exists = true;
+                }
+            }
+        }
+        return exists;
+    }
 }
