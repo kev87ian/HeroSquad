@@ -1,0 +1,30 @@
+{{#partial "content"}}
+    <div class="jumbotron">
+        <h2 class="text-center"><strong>Add Squad</strong></h2>
+
+        <form action="/squads/new" method="post">
+            <div class="form-group">
+                <label class="active " for="squadName">Squad Name</label>
+                <input id="squadName" name="squadName"  required type="text" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label class="active" for="maxSize">Squad Size</label>
+                <input id="maxSize" name="maxSize" required type="number" class="form-control" placeholder="maximum number of heroes">
+            </div>
+            <div class="for-group">
+                <label for="members">Squad Members</label>
+                <select id="members">
+                    <option value="superspeed">{{hero.name}}</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label class="active" for="squadCause">Squad Cause</label>
+                <input id="squadCause" name="squadCause" required type="text" class="form-control" placeholder="Tackle corrupt politicians">
+            </div>
+
+            <button type="submit" class=" btn btn-success" >Add Squad </button>
+        </form>
+    </div>
+{{/partial}}
+{{>layout.hbs}}
