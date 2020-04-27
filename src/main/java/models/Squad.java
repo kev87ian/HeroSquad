@@ -55,15 +55,4 @@ public class Squad {
     public void addHero(Hero hero){
         mHeroes.add(hero);
     }
-    public static boolean heroAlreadyExists(Hero newHero){
-        boolean exists = false;
-        for(Squad squad : instances){
-            for(Hero hero : squad.getHeroes()){
-                if(hero.getName().equals(newHero.getName())){
-                    exists = true;
-                }
-            }
-        }
-        return exists;
     }
-}
